@@ -1,10 +1,8 @@
 'use client'
 import Companias from '@components/Companias/Companias'
-import { useState } from 'react'
 import { CgNotes } from 'react-icons/cg'
 import { FaCarSide } from 'react-icons/fa'
 import { FaPerson } from 'react-icons/fa6'
-import FormClientes from './FormClientes'
 import FormVehiculos from './FormVehiculos'
 
 const cards = [
@@ -29,19 +27,19 @@ const cards = [
 ]
 
 export default function Body() {
-  const [verVehiculo, setMiVariable] = useState(true)
+  // const [verVehiculo, setMiVariable] = useState(true)
 
-  const cambiarValor = () => {
-    setMiVariable(!verVehiculo)
-  }
+  // const cambiarValor = () => {
+  //   setMiVariable(!verVehiculo)
+  // }
 
   return (
     <>
       <div className='bg-cover bg-image-main  min-h-[500px] grid place-content-center'>
         <article className='grid justify-center max-w-6xl px-6 row sm:grid-cols-6 md:grid-cols-12'>
-          <section className='col-span-6 p-1 mb-4 rounded-lg shadow-lg'>
-            {verVehiculo && <FormVehiculos visible={verVehiculo} cambiarValor={cambiarValor} />}
-            {!verVehiculo && <FormClientes cambiarValor={cambiarValor} />}
+          <section className='col-span-6 p-4 mb-4 bg-white rounded-lg shadow-lg'>
+            <FormVehiculos />
+            {/* {!verVehiculo && <FormClientes cambiarValor={cambiarValor} />} */}
           </section>
           <section className='col-span-6 p-6 pt-0 mb-4'>
             <h1 className='text-3xl font-bold text-primary'>Cotizador de seguro para Autos</h1>
