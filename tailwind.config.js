@@ -9,11 +9,14 @@ module.exports = {
 
     extend: {
       colors: {
-        primary: '#f39c12'
+        primary: '#f39c12',
+        secondary: 'rgb(235, 239, 242)'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'image-main': "url('/img/auto.png')",
+        logo: "url('/img/logo.png')",
+        'logo-avatar': "url('/img/logoavatar.png')",
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
       }

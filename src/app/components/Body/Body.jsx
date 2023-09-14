@@ -6,8 +6,8 @@ export default function Body() {
   return (
     <Container>
       <div className='bg-cover bg-image-main min-h-[560px] grid place-content-center'>
-        <article className='grid justify-center px-6 max-w-6xl row sm:grid-cols-6 md:grid-cols-12'>
-          <section className='col-span-6 p-1 mb-4 bg-white rounded'>
+        <article className='grid justify-center max-w-6xl px-6 row sm:grid-cols-6 md:grid-cols-12'>
+          <section className='col-span-6 p-1 mb-4 bg-white rounded-lg shadow-lg'>
             <FormVehiculos />
             <form action='' />
           </section>

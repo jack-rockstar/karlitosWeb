@@ -4,10 +4,10 @@ import Navbar from './components/Navbar/Navbar'
 
 export default function Home() {
   return (
-    <>
+    <main className='min-h-screen bg-[#e8e8e8]'>
       <Navbar />
       <Body />
       <Footer />
-    </>
+    </main>
   )
 }
