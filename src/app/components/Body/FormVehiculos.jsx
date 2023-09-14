@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { FaCarSide } from 'react-icons/fa'
+import { MdAttachMoney } from 'react-icons/md'
 
 export default function FormVehiculos() {
   const opciones1 = ['Opción 1', 'Opción 2', 'Opción 3']
@@ -40,9 +41,9 @@ export default function FormVehiculos() {
             <BsFillPersonFill className='h-5 w-14' />
           </a>
         </li>
-        <li className='p-2 text-center bg-gray-200 '>
+        <li className='flex items-center justify-center p-2 bg-gray-200 '>
           <a href='#'>
-            tercer enlace
+            <MdAttachMoney className='h-5 w-14' />
           </a>
         </li>
       </ul>
