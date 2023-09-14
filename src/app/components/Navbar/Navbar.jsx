@@ -1,3 +1,4 @@
+import Logo from '@components/General/Logo'
 import Link from 'next/link'
 
 const menusNav = [
@@ -14,13 +15,9 @@ const menusNav = [
 export default function Navbar() {
   return (
 
-    <nav className='w-full md:fixed lg:fixed xl:fixed md:top-0 lg:top-0 bg-primary'>
+    <nav className='w-full shadow-md bg-gradient-to-b from-orange-500 to-yellow-300'>
       <div className='flex flex-wrap items-center justify-between max-w-6xl p-3 mx-auto'>
-        <Link href='/' className='flex items-center gap-x-2 max-w-max'>
-          <img className='bg-logo' src='/img/logo.png' alt='Karlitos Web Logo' />
-          {/* <div className='h-20 bg-no-repeat bg-contain bg-logo-avatar w-80 lg:bg-logo xl:bg-logo md:bg-logo' /> */}
-          {/* <span className='self-center text-2xl font-semibold whitespace-nowrap dark:text-white'>Karlitos Seguros </span> */}
-        </Link>
+        <Logo />
         <button data-collapse-toggle='navbar-solid-bg' type='button' className='inline-flex items-center justify-center flex-grow w-10 h-10 p-2 text-sm text-white rounded-lg md:hidden focus:outline-none focus:ring-2 hover:bg-gray-700 focus:ring-gray-600' aria-controls='navbar-solid-bg' aria-expanded='false'>
           <span className='sr-only'>Open main menu</span>
           <svg className='w-5 h-5' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 17 14'>

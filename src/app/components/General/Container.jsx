@@ -1,7 +1,7 @@
 export default function Container({ children }) {
   return (
-    <main className='h-full min-h-screen '>
+    <div className='h-full min-h-screen bg-white'>
       {children}
-    </main>
+    </div>
   )
 }

@@ -73,7 +73,7 @@ const aseguradoras = [
 ]
 export default function Companias() {
   return (
-    <div className='flex flex-wrap items-center justify-center h-full gap-2 px-2 pt-3 md:gap-x-2 xl:gap-x-2 lg:gap-x-2'>
+    <div className='flex flex-wrap items-center justify-center h-full gap-2 px-2 py-4 my-4 md:gap-x-2 xl:gap-x-2 lg:gap-x-2'>
       {
           aseguradoras.map((aseg) =>
             <picture key={aseg.id}>
