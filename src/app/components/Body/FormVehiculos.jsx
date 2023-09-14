@@ -1,5 +1,7 @@
 'use client'
 import { useState } from 'react'
+import { BsFillPersonFill } from 'react-icons/bs'
+import { FaCarSide } from 'react-icons/fa'
 
 export default function FormVehiculos() {
   const opciones1 = ['Opción 1', 'Opción 2', 'Opción 3']
@@ -27,26 +29,25 @@ export default function FormVehiculos() {
 
   return (
     <div>
-      <ul className='mb-0 grid   md:grid-cols-3  '>
-        <li className='active text-center bg-orange-600 p-2'>
-          <a href='#' className='  text-white'>
-            Primer enlace
-
+      <ul className='grid mb-0 md:grid-cols-3 '>
+        <li className='flex items-center justify-center p-2 text-center bg-orange-600 active'>
+          <a href='#' className='text-white '>
+            <FaCarSide className='h-5 text-center w-14' />
           </a>
         </li>
-        <li className=' bg-gray-200  text-center p-2 li'>
+        <li className='flex items-center justify-center p-2 bg-gray-200 li'>
           <a href='#'>
-            Segundo enlace
+            <BsFillPersonFill className='h-5 w-14' />
           </a>
         </li>
-        <li className=' bg-gray-200 text-center p-2'>
+        <li className='p-2 text-center bg-gray-200 '>
           <a href='#'>
             tercer enlace
           </a>
         </li>
       </ul>
-      <div className='p-4 grid   '>
-        <div className=' grid grid-cols-1 mb-2 rounded  border-2'>
+      <div className='grid p-4 '>
+        <div className='grid grid-cols-1 mb-2 border-2 rounded '>
           <select value={selectedOption1} onChange={handleOption1Change} className='rounded'>
             <option value=''>Marca</option>
             {opciones1.map((opcion) => (
@@ -57,7 +58,7 @@ export default function FormVehiculos() {
           </select>
         </div>
 
-        <div className=' grid grid-cols-1 mb-2 rounded  border-2'>
+        <div className='grid grid-cols-1 mb-2 border-2 rounded '>
           <select
             value={selectedOption2}
             onChange={handleOption2Change}
@@ -73,7 +74,7 @@ export default function FormVehiculos() {
           </select>
         </div>
 
-        <div className=' grid grid-cols-1 mb-2 rounded  border-2'>
+        <div className='grid grid-cols-1 mb-2 border-2 rounded '>
           <select
             value={selectedOption3}
             onChange={handleOption3Change}
@@ -89,18 +90,18 @@ export default function FormVehiculos() {
           </select>
         </div>
         <div className='grid grid-cols-3'>
-          <div></div>
+          <div />
           <div className='text-right'><label htmlFor=''>Es 0 Km?:</label></div>
           <div className='grid grid-cols-4 text-center'>
             Si
-            <input id='default-radio-1' type='radio' value='' name='default-radio' className='w-4  text-blue-600 bg-gray-100 border-gray-300  dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600'></input>
+            <input id='default-radio-1' type='radio' value='' name='default-radio' className='w-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600' />
             No
-            <input checked id="default-radio-2" type="radio" value="" name="default-radio" className="w-4  text-blue-600 bg-gray-100 border-gray-300  dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"></input>
+            <input checked id='default-radio-2' type='radio' value='' name='default-radio' className='w-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600' />
           </div>
         </div>
         <div className='grid grid-cols-1'>
-          <button type='button' className='' ></button>
-          
+          <button type='button' className='' />
+
         </div>
       </div>
     </div>

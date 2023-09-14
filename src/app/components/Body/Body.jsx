@@ -1,5 +1,5 @@
-import Companias from '../Companias/Companias'
-import Container from '../General/Container'
+import Companias from '@components/Companias/Companias'
+import Container from '@components/General/Container'
 import FormVehiculos from './FormVehiculos'
 
 export default function Body() {
