@@ -11,7 +11,7 @@ function ModalUser({ isModalOpenUser, closeModalUser }) {
     setIsDropdownOpen(!isDropdownOpen)
   }
   const changeTipeDoc = (e) => {
-    setTipoDoc(e.target.value)
+    setTipoDoc(e.target.textContent)
     toggleDropdown()
   }
 
