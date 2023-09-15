@@ -1,46 +1,9 @@
 'use client'
 import InputButton from '@components/General/InputButton'
 import MenusForm from './MenusForm'
+import { useState } from 'react'
 
-export default function FormVehiculos() {
-  // const opciones1 = ['Opción 1', 'Opción 2', 'Opción 3']
-  // const opciones2 = ['Subopción A', 'Subopción B', 'Subopción C']
-  // const opciones3 = ['Subsubopción 1', 'Subsubopción 2', 'Subsubopción 3']
-  // const opciones4 = ['SI', 'NO']
-
-  // const [selectedOption1, setSelectedOption1] = useState('')
-  // const [selectedOption2, setSelectedOption2] = useState('')
-  // const [selectedOption3, setSelectedOption3] = useState('')
-  // const [selectedOption4, setSelectedOption4] = useState('')
-  // const [btnNext, setbtnNext] = useState('')
-  // const [number, setnumber] = useState('')
-
-  // const handleOption1Change = (e) => {
-  //   setSelectedOption1(e.target.value)
-  //   setSelectedOption2('')
-  //   setSelectedOption3('')
-  //   setSelectedOption4('')
-  // }
-
-  // const handleOption2Change = (e) => {
-  //   setSelectedOption2(e.target.value)
-  //   setSelectedOption3('')
-  //   setSelectedOption4('')
-  // }
-
-  // const handleOption3Change = (e) => {
-  //   setSelectedOption3(e.target.value)
-  //   setSelectedOption4('')
-  // }
-  // const handleOption4Change = (e) => {
-  //   setSelectedOption4(e.target.value)
-  // }
-  // const cambioInputSumaAsegu = (e) => {
-  //   console.log(e.target.value)
-  //   const valorIngresado = e.target.value.replace(/[^\d.,]/g, '')
-  //   setnumber(valorIngresado)
-  // }
-
+export default function FormVehiculos({ openModal, closeModal }) {
   return (
     <div>
       <MenusForm />
@@ -113,11 +76,13 @@ export default function FormVehiculos() {
             No
             <input checked id='default-radio-2' type='radio' value='' name='default-radio' className='w-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600' />
           </div>
-        </div>
-        <div className='flex items-center justify-center '>
-          <button id={btnNext} type='button' hidden={!selectedOption4} className='h-10 mt-2 text-white rounded-md btn w-36 bg-primary'>Siguiente</button>
         </div> */}
+        
       </div>
+      <div className='flex  items-center justify-center '>
+        <button type='button' onClick={openModal} className='h-10 mt-2 text-white rounded-md btn w-40 shadow-md bg-gradient-to-b from-orange-500 to-yellow-300'>Generar Cotización </button>
+      </div>
+      {/* <!-- Main modal --> */}
     </div>
   )
 }

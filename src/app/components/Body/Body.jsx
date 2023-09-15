@@ -4,6 +4,8 @@ import { CgNotes } from 'react-icons/cg'
 import { FaCarSide } from 'react-icons/fa'
 import { FaPerson } from 'react-icons/fa6'
 import FormVehiculos from './FormVehiculos'
+import ModalUser from './ModalUser'
+import { useState } from 'react'
 
 const cards = [
   {
@@ -27,18 +29,21 @@ const cards = [
 ]
 
 export default function Body() {
-  // const [verVehiculo, setMiVariable] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  }
 
-  // const cambiarValor = () => {
-  //   setMiVariable(!verVehiculo)
-  // }
+  const closeModal = () => {
+    setIsModalOpen(false);
+  }
 
   return (
     <>
       <div className='bg-cover bg-image-main  min-h-[500px] grid place-content-center'>
         <article className='grid justify-center max-w-6xl px-6 row sm:grid-cols-6 md:grid-cols-12'>
           <section className='col-span-6 p-4 mb-4 bg-white rounded-lg shadow-lg'>
-            <FormVehiculos />
+            <FormVehiculos openModal={openModal} closeModal={closeModal} />
             {/* {!verVehiculo && <FormClientes cambiarValor={cambiarValor} />} */}
           </section>
           <section className='col-span-6 p-6 pt-0 mb-4'>
@@ -68,8 +73,8 @@ export default function Body() {
             }
           </article>
         </div>
-
       </div>
+      {isModalOpen && <ModalUser openModal={openModal} closeModal={closeModal} />}
     </>
   )
 }
