@@ -1,12 +1,12 @@
 'use client'
 import Companias from '@components/Companias/Companias'
+import { useState } from 'react'
 import { CgNotes } from 'react-icons/cg'
 import { FaCarSide } from 'react-icons/fa'
 import { FaPerson } from 'react-icons/fa6'
+import useModal from '../../hook/useModal'
 import FormVehiculos from './FormVehiculos'
 import ModalUser from './ModalUser'
-import { useState } from 'react'
-import useModal from '../../hook/useModal'
 
 const cards = [
   {
@@ -30,15 +30,9 @@ const cards = [
 ]
 
 export default function Body() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isModalOpenUser, setIsModalOpenUser] = useState(false)
 
-  const { isOpen, openModal, closeModal } = useModal(false)
-
-  const handleInputClick = () => {
-    console.log({ isOpen })
-    openModal()
-  }
+  const { openModal, closeModal } = useModal(false)
 
   /* const openModal = () => {
     setIsModalOpen(true)
