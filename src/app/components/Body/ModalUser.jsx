@@ -33,16 +33,17 @@ function ModalUser({ isModalOpenUser, closeModalUser }) {
                   className=' justify-between  px-5 py-2 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2  appearance-none  border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-0 peer inline-flex text-center' type='button'
                 >
                   {tipoDoc}
-                  <svg className=' w-2.5 h-2.5 ml-2.5 right-2 text-center' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 10 6'>
+                  <svg className=' w-2.5 h-2.5  mt-1 text-center' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 10 6'>
                     <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='m1 1 4 4 4-4' />
                   </svg>
                 </button>
                 {isDropdownOpen && (
-                  <div className='origin-top-right absolute z-10
-                      mt-2 w-44 rounded-lg shadow-lg bg-white divide-y divide-gray-100 dark:bg-gray-700'>
-                    <ul className='py-2 text-sm text-gray-700 dark:text-gray-200 z-0'>
-                      <li>
-                        <a onClick={changeTipeDoc} href='#' className=' px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
+                  <div className='origin-top-right absolute z-10 
+                      mt-2 w-44 rounded-lg shadow-lg bg-white divide-y divide-gray-100 dark:bg-gray-700'
+                  >
+                    <ul className='py-2 text-sm text-gray-700 dark:text-gray-200 z-0 w-full'>
+                      <li className='w-full'>
+                        <a onClick={changeTipeDoc} href='#' className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
                           DNI
                         </a>
                       </li>
@@ -94,22 +95,6 @@ function ModalUser({ isModalOpenUser, closeModalUser }) {
             </button>
           </div>
         </div>
-      </div>
-      <div id='dropdownHover' className='z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700'>
-        <ul className='py-2 text-sm text-gray-700 dark:text-gray-200' aria-labelledby='dropdownHoverButton'>
-          <li>
-            <a href='#' className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Dashboard</a>
-          </li>
-          <li>
-            <a href='#' className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Settings</a>
-          </li>
-          <li>
-            <a href='#' className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Earnings</a>
-          </li>
-          <li>
-            <a href='#' className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Sign out</a>
-          </li>
-        </ul>
       </div>
     </Modal>
   )

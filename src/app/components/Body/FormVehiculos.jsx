@@ -18,13 +18,13 @@ export default function FormVehiculos({ openModalUser }) {
     <>
       <section className='grid grid-cols-2 p-4 gap-x-2 gap-y-2 '>
         <div className='col-span-1'>
-          <InputButton autocomplete='off' name='marca' onClick={(e) => handleInputClick(e.target.name)} placeholder='Marca' />
+          <InputButton autoComplete='off' name='marca' onClick={(e) => handleInputClick(e.target.name)} placeholder='Marca' />
         </div>
         <div className='col-span-1'>
-          <InputButton autocomplete='off' name='anio' onClick={(e) => handleInputClick(e.target.name)} placeholder='Año' />
+          <InputButton autoComplete='off' name='anio' onClick={(e) => handleInputClick(e.target.name)} placeholder='Año' />
         </div>
         <div className='col-span-2'>
-          <InputButton autocomplete='off' name='modeloVersion' placeholder='Modelo' onClick={(e) => handleInputClick(e.target.name)} />
+          <InputButton autoComplete='off' name='modeloVersion' placeholder='Modelo' onClick={(e) => handleInputClick(e.target.name)} />
         </div>
         <div className='col-span-1'>
           <InputLabel className='border-1' label='Valor del Vehiculo' />
