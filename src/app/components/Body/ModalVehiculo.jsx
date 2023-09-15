@@ -389,22 +389,25 @@ const vehiculos = [
 export default function ModalVehiculo({ closeModal, isOpen }) {
   return (
     <Modal closeModal={closeModal} isOpen={isOpen}>
-      <main className='my-10  overflow-auto custom-scrollbar-orange max-h-[60vh] relative'>
+      <main className='relative my-10'>
         <div className='py-2 mx-2 '>
           <InputLabel label='Buscar' placeholder='' />
         </div>
-        <h3 className='block py-4 mx-2 text-base font-semibold text-blue-500'>Otras marcas</h3>
-        <div className='grid grid-cols-3 gap-6 px-2 '>
-          {
+        <div className='overflow-auto custom-scrollbar-orange max-h-[60vh]'>
+          <h3 className='block py-4 mx-2 text-base font-semibold text-blue-500'>Otras marcas</h3>
+          <div className='grid grid-cols-3 gap-6 px-2 ] '>
+            {
           vehiculos.map(e =>
             <article key={e.id} className='px-8 py-4 transition-all border-2 rounded-lg cursor-pointer hover:border-blue-300'>
               <p className='text-sm font-light text-center text-black'>{e.name}</p>
             </article>
-
           )
-        }
+          }
+
+          </div>
 
         </div>
+
       </main>
 
     </Modal>

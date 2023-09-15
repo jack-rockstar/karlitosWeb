@@ -25,10 +25,11 @@ export default function FormVehiculos({ openModalUser }) {
         <div className='col-span-1'>
           <InputButton placeholder='Version' disabled />
         </div>
-        <div className='flex items-center justify-center '>
-          <button type='button' onClick={openModalUser} className='w-40 h-10 mt-2 text-white rounded-md shadow-md btn bg-gradient-to-b from-orange-500 to-yellow-300'>Generar Cotización </button>
-        </div>
+
       </section>
+      <div className='flex items-center justify-center '>
+        <button type='button' onClick={openModalUser} className='w-full h-10 mx-3 mt-2 text-white bg-blue-500 rounded-md shadow-md'>Generar Cotización </button>
+      </div>
       <ModalVehiculo closeModal={closeModal} isOpen={isOpen} />
     </>
   )
