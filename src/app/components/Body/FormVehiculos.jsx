@@ -2,29 +2,30 @@
 import CheckBox from '@components/General/CheckBox'
 import InputButton from '@components/General/InputButton'
 import InputLabel from '@components/General/InputLabel'
+import useModal from '@hooks/useModal'
 import { useState } from 'react'
-import useModal from '../../hook/useModal'
 import ModalVehiculo from './ModalVehiculo'
 
 export default function FormVehiculos({ openModalUser }) {
   const { isOpen, openModal, closeModal } = useModal(false)
-  const [type, setType] = useState('')
+  const [type, setType] = useState('marca')
 
   const handleInputClick = (name) => {
     setType(name)
     openModal()
   }
+
   return (
     <>
       <section className='grid grid-cols-2 p-4 gap-x-2 gap-y-2 '>
         <div className='col-span-1'>
-          <InputButton autocomplete='off' name='marca' onClick={(e) => handleInputClick(e.target.name)} placeholder='Marca' />
+          <InputButton autoComplete='off' name='marca' onClick={(e) => handleInputClick(e.target.name)} placeholder='Marca' />
         </div>
         <div className='col-span-1'>
-          <InputButton autocomplete='off' name='anio' onClick={(e) => handleInputClick(e.target.name)} placeholder='Año' />
+          <InputButton autoComplete='off' name='anio' onClick={(e) => handleInputClick(e.target.name)} placeholder='Año' />
         </div>
         <div className='col-span-2'>
-          <InputButton autocomplete='off' name='modeloVersion' placeholder='Modelo' onClick={(e) => handleInputClick(e.target.name)} />
+          <InputButton autoComplete='off' name='modeloVersion' placeholder='Modelo' onClick={(e) => handleInputClick(e.target.name)} />
         </div>
         <div className='col-span-1'>
           <InputLabel className='border-1' label='Valor del Vehiculo' />

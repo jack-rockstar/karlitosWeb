@@ -1,10 +1,10 @@
 'use client'
 import Companias from '@components/Companias/Companias'
+import useModal from '@hooks/useModal'
 import { useState } from 'react'
 import { CgNotes } from 'react-icons/cg'
 import { FaCarSide } from 'react-icons/fa'
 import { FaPerson } from 'react-icons/fa6'
-import useModal from '../../hook/useModal'
 import FormVehiculos from './FormVehiculos'
 import ModalUser from './ModalUser'
 
@@ -73,7 +73,7 @@ export default function Body() {
           <article className='grid items-center justify-center w-full grid-cols-3 gap-2 px-4 py-2'>
             {
               cards.map(({ id, icon, text, title }) =>
-                <div key={id} className='h-full p-2 text-white rounded-lg bg-gradient-to-t from-orange-500 to-yellow-300'>
+                <div key={id} className='h-full p-2 text-white bg-blue-500 rounded-lg'>
                   <span className='flex flex-col items-center justify-center mb-3'>
                     {icon}
                     <h3 className='text-lg font-semibold '>{title}</h3>
