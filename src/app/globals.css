@@ -34,7 +34,7 @@
   margin-top: -18px;
 }
 
-.custom-scrollbar-orange {
+/* .custom-scrollbar-orange {
   scrollbar-width: thin;
   scrollbar-color: orange;
 }
@@ -50,4 +50,4 @@
 .custom-scrollbar-orange::-webkit-scrollbar-thumb {
   background-color: rgb(218, 153, 56);
   border-radius: 3px;
-}
+} */

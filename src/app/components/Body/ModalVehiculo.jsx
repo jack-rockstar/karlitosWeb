@@ -1,4 +1,4 @@
-import InputSearch from '@components/General/InputSearch'
+import InputLabel from '@components/General/InputLabel'
 import Modal from '@components/General/Modal'
 
 const vehiculos = [
@@ -389,20 +389,24 @@ const vehiculos = [
 export default function ModalVehiculo({ closeModal, isOpen }) {
   return (
     <Modal closeModal={closeModal} isOpen={isOpen}>
-      <div className='py-2 mx-2 my-4 border-b-2 border-b-orange-500'>
-        <InputSearch />
-      </div>
-      <div className='grid grid-cols-3 gap-4 px-2 overflow-auto custom-scrollbar-orange max-h-[40vh]'>
-        {
+      <main className='my-10  overflow-auto custom-scrollbar-orange max-h-[60vh] relative'>
+        <div className='py-2 mx-2 '>
+          <InputLabel label='Buscar' placeholder='' />
+        </div>
+        <h3 className='block py-4 mx-2 text-base font-semibold text-blue-500'>Otras marcas</h3>
+        <div className='grid grid-cols-3 gap-6 px-2 '>
+          {
           vehiculos.map(e =>
-            <article key={e.id} className='px-6 py-4 border-2 rounded-lg'>
-              <p className='text-black text-1xl'>{e.name}</p>
+            <article key={e.id} className='px-8 py-4 transition-all border-2 rounded-lg cursor-pointer hover:border-blue-300'>
+              <p className='text-sm font-light text-center text-black'>{e.name}</p>
             </article>
 
           )
         }
 
-      </div>
+        </div>
+      </main>
+
     </Modal>
   )
 }
