@@ -6,6 +6,7 @@ import { FaPerson } from 'react-icons/fa6'
 import FormVehiculos from './FormVehiculos'
 import ModalUser from './ModalUser'
 import { useState } from 'react'
+import useModal from '../../hook/useModal'
 
 const cards = [
   {
@@ -29,13 +30,29 @@ const cards = [
 ]
 
 export default function Body() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => {
-    setIsModalOpen(true);
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpenUser, setIsModalOpenUser] = useState(false)
+
+  const { isOpen, openModal, closeModal } = useModal(false)
+
+  const handleInputClick = () => {
+    console.log({ isOpen })
+    openModal()
   }
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  /* const openModal = () => {
+    setIsModalOpen(true)
+  } */
+
+  /* const closeModal = () => {
+    setIsModalOpen(false)
+  } */
+  const openModalUser = () => {
+    setIsModalOpenUser(true)
+  }
+
+  const closeModalUser = () => {
+    setIsModalOpenUser(false)
   }
 
   return (
@@ -43,7 +60,7 @@ export default function Body() {
       <div className='bg-cover bg-image-main  min-h-[500px] grid place-content-center'>
         <article className='grid justify-center max-w-6xl px-6 row sm:grid-cols-6 md:grid-cols-12'>
           <section className='col-span-6 p-4 mb-4 bg-white rounded-lg shadow-lg'>
-            <FormVehiculos openModal={openModal} closeModal={closeModal} />
+            <FormVehiculos openModal={openModal} closeModal={closeModal} openModalUser={openModalUser} />
             {/* {!verVehiculo && <FormClientes cambiarValor={cambiarValor} />} */}
           </section>
           <section className='col-span-6 p-6 pt-0 mb-4'>
@@ -74,7 +91,7 @@ export default function Body() {
           </article>
         </div>
       </div>
-      {isModalOpen && <ModalUser openModal={openModal} closeModal={closeModal} />}
+      <ModalUser isModalOpenUser={isModalOpenUser} closeModalUser={closeModalUser} />
     </>
   )
 }
