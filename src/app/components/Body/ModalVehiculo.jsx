@@ -643,8 +643,8 @@ export default function ModalVehiculo({ closeModal, isOpen, type = 'marca' }) {
 
   const form = renderByType.find(e => e.type === type)
 
-  if (!form) return undefined
-  console.log({ form, open })
+  if (!form) return
+
   return (
     <Modal closeModal={closeModal} isOpen={isOpen}>
       <main className='relative my-10'>

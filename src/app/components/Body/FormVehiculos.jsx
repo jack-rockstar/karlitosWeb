@@ -2,18 +2,19 @@
 import CheckBox from '@components/General/CheckBox'
 import InputButton from '@components/General/InputButton'
 import InputLabel from '@components/General/InputLabel'
+import useModal from '@hooks/useModal'
 import { useState } from 'react'
-import useModal from '../../hook/useModal'
 import ModalVehiculo from './ModalVehiculo'
 
 export default function FormVehiculos({ openModalUser }) {
   const { isOpen, openModal, closeModal } = useModal(false)
-  const [type, setType] = useState('')
+  const [type, setType] = useState('marca')
 
   const handleInputClick = (name) => {
     setType(name)
     openModal()
   }
+
   return (
     <>
       <section className='grid grid-cols-2 p-4 gap-x-2 gap-y-2 '>

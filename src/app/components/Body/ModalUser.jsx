@@ -1,7 +1,7 @@
 'use client'
-import Modal from '@components/General/Modal'
-import React, { useState } from 'react'
 import InputLabel from '@components/General/InputLabel'
+import Modal from '@components/General/Modal'
+import { useState } from 'react'
 
 function ModalUser({ isModalOpenUser, closeModalUser }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -18,19 +18,19 @@ function ModalUser({ isModalOpenUser, closeModalUser }) {
   return (
     <Modal closeModal={closeModalUser} width={500} isOpen={isModalOpenUser}>
       <div className='relative w-full max-w-2xl max-h-full'>
-        <div className='relative  '>
+        <div className='relative '>
           <div className='flex items-start justify-between p-4 '>
-            <h3 className='text-xl font-semibold  text-blue-950'>
+            <h3 className='text-xl font-semibold text-blue-950'>
               Necesitamos unos datos más...
             </h3>
           </div>
-          <div className='p-6 space-y-6'>
+          <div className='p-4 space-y-4'>
             <div className='grid grid-cols-2'>
-              <div className='relative  p-1'>
+              <div className='relative p-1'>
                 <button
                   id='dropdownHoverButton' data-dropdown-toggle='dropdownHover' data-dropdown-trigger='hover'
                   onClick={toggleDropdown}
-                  className=' justify-between  px-5 py-2 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2  appearance-none  border-blue-500 focus:border-blue-500 focus:outline-none focus:ring-0 peer inline-flex text-center' type='button'
+                  className='inline-flex justify-between w-full px-5 py-2 text-sm text-center text-gray-900 bg-transparent border-2 border-blue-500 rounded-lg appearance-none focus:border-blue-500 focus:outline-none focus:ring-0 peer' type='button'
                 >
                   {tipoDoc}
                   <svg className=' w-2.5 h-2.5  mt-1 text-center' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 10 6'>
@@ -84,7 +84,7 @@ function ModalUser({ isModalOpenUser, closeModalUser }) {
               </div>
             </div>
           </div>
-          <div className='flex items-center  justify-center  p-6 space-x-2  border-gray-200 rounded-b dark:border-gray-600'>
+          <div className='flex items-center justify-center p-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600'>
             <button
               onClick={closeModalUser}
               type='button'
