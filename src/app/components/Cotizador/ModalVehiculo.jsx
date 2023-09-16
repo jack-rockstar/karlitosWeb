@@ -622,87 +622,63 @@ const versiones = [
   }
 ]
 
-export default function ModalVehiculo({ closeModal, isOpen, type = 'marca' }) {
-  const renderByType = [
-    {
-      type: 'anio',
-      title: 'Elegí el año de fabricación de tu vehículo',
-      component: <ListAnios anios={anios} />
-    },
-    {
-      type: 'marca',
-      title: 'Otras marcas',
-      component: <ListMarcas marcas={marcas} />
-    },
-    {
-      type: 'modeloVersion',
-      title: 'Elegí el modelo de tu vehículo',
-      component: <ListVersiones versiones={versiones} />
+const renderByType = [
+  {
+    type: 'marca',
+    next: 'anio',
+    title: 'Otras marcas',
+    data: marcas
+  },
+  {
+    type: 'anio',
+    next: 'modeloVersion',
+    title: 'Elegí el año de fabricación de tu vehículo',
+    data: anios
+  },
+  {
+    type: 'modeloVersion',
+    next: null,
+    title: 'Elegí el modelo de tu vehículo',
+    data: versiones
+  }
+]
+
+export default function ModalVehiculo({ closeModal, isOpen, formType, onFormChange, onFormData }) {
+  const form = renderByType.find(e => e.type === formType)
+
+  const handleSelect = (type, nextType, data) => {
+    onFormData((prevData) => ({
+      ...prevData,
+      [type]: data.name
+    }))
+
+    if (nextType) {
+      onFormChange(nextType)
+      return
     }
-  ]
-
-  const form = renderByType.find(e => e.type === type)
-
-  if (!form) return
-
+    closeModal()
+  }
   return (
     <Modal closeModal={closeModal} isOpen={isOpen}>
       <main className='relative my-10'>
         <div className='py-2 mx-2 '>
-          <InputLabel label='Buscar' placeholder='' />
+          <InputLabel name='buscar' label='Buscar' placeholder='' />
         </div>
         <div className='overflow-auto custom-scrollbar-orange max-h-[60vh]'>
           <h3 className='block py-4 mx-2 text-base font-semibold text-blue-500'>{form.title}</h3>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 px-2 ] '>
-            {form.component}
+            {
+             form.data.map((e) =>
+               <article key={e.id} onClick={() => handleSelect(form.type, form.next, e)} className='px-8 py-4 transition-all border-2 rounded-lg cursor-pointer hover:border-blue-300'>
+                 <p className='text-sm font-light text-center text-black'>{e.name}</p>
+               </article>
+             )
+            }
           </div>
-
         </div>
 
       </main>
 
     </Modal>
-  )
-}
-
-const ListMarcas = ({ marcas }) => {
-  return (
-    <>
-      {
-        marcas.map(e =>
-          <article key={e.id} className='px-8 py-4 transition-all border-2 rounded-lg cursor-pointer hover:border-blue-300'>
-            <p className='text-sm font-light text-center text-black'>{e.name}</p>
-          </article>
-        )
-      }
-    </>
-  )
-}
-
-const ListAnios = ({ anios }) => {
-  return (
-    <>
-      {
-        anios.map(e =>
-          <article key={e.id} className='px-8 py-4 transition-all border-2 rounded-lg cursor-pointer hover:border-blue-300'>
-            <p className='text-sm font-light text-center text-black'>{e.name}</p>
-          </article>
-        )
-      }
-    </>
-  )
-}
-
-const ListVersiones = ({ versiones }) => {
-  return (
-    <>
-      {
-        versiones.map(e =>
-          <article key={e.id} className='px-8 py-4 transition-all border-2 rounded-lg cursor-pointer hover:border-blue-300'>
-            <p className='text-sm font-light text-center text-black'>{e.name}</p>
-          </article>
-        )
-      }
-    </>
   )
 }

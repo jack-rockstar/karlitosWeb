@@ -1,9 +1,24 @@
 'use client'
 import InputLabel from '@components/General/InputLabel'
 import Modal from '@components/General/Modal'
+import Link from 'next/link'
 import { useState } from 'react'
+const tipoDocs = [
+  {
+    id: 0,
+    name: 'DNI'
+  },
+  {
+    id: 1,
+    name: 'CE'
+  },
+  {
+    id: 2,
+    name: 'RUC'
+  }
+]
 
-function ModalUser({ isModalOpenUser, closeModalUser }) {
+export default function ModalUser({ isModalOpenUser, closeModalUser }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [tipoDoc, setTipoDoc] = useState('Tipo de Doc.')
 
@@ -38,66 +53,56 @@ function ModalUser({ isModalOpenUser, closeModalUser }) {
                   </svg>
                 </button>
                 {isDropdownOpen && (
-                  <div className='origin-top-right absolute z-10 
-                      mt-2 w-44 rounded-lg shadow-lg bg-white divide-y divide-gray-100 dark:bg-gray-700'
-                  >
-                    <ul className='py-2 text-sm text-gray-700 dark:text-gray-200 z-0 w-full'>
-                      <li className='w-full'>
-                        <a onClick={changeTipeDoc} href='#' className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
-                          DNI
-                        </a>
-                      </li>
-                      <li>
-                        <a onClick={changeTipeDoc} href='#' className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
-                          RUC
-                        </a>
-                      </li>
-                      <li>
-                        <a onClick={changeTipeDoc} href='#' className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
-                          CE
-                        </a>
-                      </li>
+                  <div className='absolute z-10 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 dark:bg-gray-700'>
+                    <ul className='z-0 w-full py-2 text-sm text-gray-700 dark:text-gray-200'>
+                      {
+                        tipoDocs.map((e) => {
+                          return (
+                            <li key={e.id} onClick={changeTipeDoc} className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
+                              {e.name}
+                            </li>
+                          )
+                        })
+                      }
                     </ul>
                   </div>
                 )}
               </div>
               <div className='relative z-0 p-1'>
-                <InputLabel label='N Documento' />
+                <InputLabel name='nroDoc' label='N Documento' />
               </div>
             </div>
             <div className='grid grid-cols-2'>
               <div className='relative z-0 p-1'>
-                <InputLabel label='Nombres' />
+                <InputLabel name='nombre' label='Nombres' />
               </div>
               <div className='relative z-0 p-1'>
-                <InputLabel label='Apellidos' />
+                <InputLabel name='apellido' label='Apellidos' />
               </div>
             </div>
             <div className='grid grid-cols-1 p-1'>
               <div className='relative z-0'>
-                <InputLabel label='Email' />
+                <InputLabel name='email' label='Email' />
               </div>
             </div>
             <div className='grid grid-cols-1 p-1'>
               <div className='relative z-0 '>
-                <InputLabel label='Telefono' />
+                <InputLabel name='telefono' label='Telefono' />
               </div>
             </div>
           </div>
           <div className='flex items-center justify-center p-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600'>
-            <button
+            <Link
+              href='/resultado'
               onClick={closeModalUser}
-              type='button'
-              className='shadow-md  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+              className='shadow-md text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center '
               style={{ background: 'linear-gradient(87deg,#f97316 0%,#af09d8   100%)' }}
             >
               Ver la cotización
-            </button>
+            </Link>
           </div>
         </div>
       </div>
     </Modal>
   )
 }
-
-export default ModalUser

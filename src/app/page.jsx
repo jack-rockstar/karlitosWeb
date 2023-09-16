@@ -1,14 +1,10 @@
+import Cotizador from '@components/Cotizador/Cotizador'
 import Container from '@components/General/Container'
-import Body from './components/Body/Body'
-import Footer from './components/Footer/Footer'
-import Navbar from './components/Navbar/Navbar'
 
-export default function Home() {
+export default function Home({ searchParams }) {
   return (
     <Container>
-      <Navbar />
-      <Body />
-      <Footer />
+      <Cotizador searchParams={searchParams} />
     </Container>
   )
 }

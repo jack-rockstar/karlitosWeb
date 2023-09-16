@@ -29,33 +29,16 @@ const cards = [
   }
 ]
 
-export default function Body() {
-  const [isModalOpenUser, setIsModalOpenUser] = useState(false)
-
-  const { openModal, closeModal } = useModal(false)
-
-  /* const openModal = () => {
-    setIsModalOpen(true)
-  } */
-
-  /* const closeModal = () => {
-    setIsModalOpen(false)
-  } */
-  const openModalUser = () => {
-    setIsModalOpenUser(true)
-  }
-
-  const closeModalUser = () => {
-    setIsModalOpenUser(false)
-  }
+export default function Cotizador({ searchParams }) {
+  const { isOpen, openModal, closeModal } = useModal(false)
+  const [form, setForm] = useState(searchParams?.marca ? searchParams : { marca: '', modeloVersion: '', anio: '', valorVeh: '', endoso: false })
 
   return (
     <>
       <div className='bg-cover bg-image-main  min-h-[500px] grid place-content-center'>
         <article className='grid justify-center max-w-6xl px-6 row sm:grid-cols-6 md:grid-cols-12'>
           <section className='col-span-6 p-4 mb-4 bg-white rounded-lg shadow-lg'>
-            <FormVehiculos openModal={openModal} closeModal={closeModal} openModalUser={openModalUser} />
-            {/* {!verVehiculo && <FormClientes cambiarValor={cambiarValor} />} */}
+            <FormVehiculos formData={form} onFormData={setForm} openModalUser={openModal} />
           </section>
           <section className='col-span-6 p-6 pt-0 mb-4'>
             <h1 className='text-3xl font-bold text-primary'>Cotizador de seguro para Autos</h1>
@@ -85,7 +68,7 @@ export default function Body() {
           </article>
         </div>
       </div>
-      <ModalUser isModalOpenUser={isModalOpenUser} closeModalUser={closeModalUser} />
+      <ModalUser formData={form} isModalOpenUser={isOpen} closeModalUser={closeModal} />
     </>
   )
 }
